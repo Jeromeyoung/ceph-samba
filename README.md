@@ -30,6 +30,9 @@ This is a testing demo about how to export cephfs volume from 2 RHEL Samba gatew
 # subscription-manager repos --enable=rhceph-5-tools-for-rhel-8-x86_64-rpms --enable=ansible-2.9-for-rhel-8-x86_64-rpms
 ```
 ```
+dnf install cephadm-ansible -y
+```
+```
 # cd  /usr/share/cephadm-ansible
 ```
 ```
@@ -74,3 +77,6 @@ ceph-osd-2 | SUCCESS => {
 ```
 
 2. Instal cephadm-ansible by following RH documentation [link](https://access.redhat.com/documentation/en/red_hat_ceph_storage/5/html-single/installation_guide/index#registering-the-red-hat-ceph-storage-nodes-to-the-cdn-and-attaching-subscriptions_install)
+```
+ansible-playbook -i /usr/share/cephadm-ansible/inventory/staging/hosts cephadm-preflight.yml --extra-vars "ceph_origin=rhcs"
+```
