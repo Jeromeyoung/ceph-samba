@@ -31,6 +31,7 @@ ceph-osd-1
 
 [clients]
 ceph-osd-[1:6]
+
 # ansible all -m ping
 ceph-osd-1 | SUCCESS => {
     "changed": false,
@@ -57,3 +58,5 @@ ceph-osd-2 | SUCCESS => {
     "ping": "pong"
 }
 ```
+
+2. Instal cephadm-ansible by following RH documentation ![link] (https://access.redhat.com/documentation/en/red_hat_ceph_storage/5/html-single/installation_guide/index#registering-the-red-hat-ceph-storage-nodes-to-the-cdn-and-attaching-subscriptions_install)
