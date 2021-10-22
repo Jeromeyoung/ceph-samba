@@ -59,4 +59,4 @@ ceph-osd-2 | SUCCESS => {
 }
 ```
 
-2. Instal cephadm-ansible by following RH documentation ![link] (https://access.redhat.com/documentation/en/red_hat_ceph_storage/5/html-single/installation_guide/index#registering-the-red-hat-ceph-storage-nodes-to-the-cdn-and-attaching-subscriptions_install)
+2. Instal cephadm-ansible by following RH documentation [link](https://access.redhat.com/documentation/en/red_hat_ceph_storage/5/html-single/installation_guide/index#registering-the-red-hat-ceph-storage-nodes-to-the-cdn-and-attaching-subscriptions_install)
