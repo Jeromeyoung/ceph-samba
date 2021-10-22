@@ -4,7 +4,8 @@
 - [LAB Requirements](#Requirements)
 - [RHCS deployment ](#RHCS-deployment)
    - [Install and verify RHCS pre-requisites](#Install-and-check-prerequisites)
-   - [Deply RHCS from ceph-adm orchestrator](#RHCS-deployment-from-bootstrap-node)
+   - [Deployment from ceph-adm orchestrator](#RHCS-deployment-from-bootstrap-node)
+   - [Deployment from service configuration file](#RHCS-deployment-from-service-configuration-yaml)
 - [OpenShift Data Foundation v4.7](#OpenShift-Data-Foundation-v47)
    -  [Order your lab environment from RHPDS](#Order-your-lab-environment-from-RHPDS)
    -  [Deploy 4 OSD nodes in  2 AZs with 3rd AZ and an arbiter node](#Deploy-4-OSD-nodes-in-2-AZs-with-3rd-AZ-with-an-arbiter-node)
@@ -117,7 +118,7 @@ You can access the Ceph CLI with:
 	sudo /usr/sbin/cephadm shell --fsid c0bf2ee0-338b-11ec-af56-527267c4d4c1 -c /etc/ceph/ceph.conf -k /etc/ceph/ceph.client.admin.keyring
 ...
 ```
-Check the cluster services
+2. Check the cluster services
 ```
 # ceph orch ls
 NAME           RUNNING  REFRESHED  AGE  PLACEMENT
@@ -140,3 +141,5 @@ mon.ceph-osd-1            ceph-osd-1  running (9m)  58s ago    9m   -           
 node-exporter.ceph-osd-1  ceph-osd-1  running (6m)  58s ago    6m   *:9100         0.18.1            68b1be7484d4  549bdaf3b12d
 prometheus.ceph-osd-1     ceph-osd-1  running (5m)  58s ago    5m   *:9095         2.22.2            5d1b335ca8fd  41bc0c543f2a
 ```
+
+### RHCS deployment from service configuration yaml
