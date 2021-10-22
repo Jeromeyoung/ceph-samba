@@ -32,8 +32,6 @@ inventory = ./inventory/staging/hosts
 ```
 ```
 # cat ./inventory/staging/hosts
-```
-```
 [admin]
 ceph-osd-1
 
