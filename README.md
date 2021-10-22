@@ -99,7 +99,6 @@ ansible-playbook -i /usr/share/cephadm-ansible/inventory/staging/hosts cephadm-p
 # cephadm bootstrap --mon-ip 192.168.1.101 --registry-json ./mylogin.json
 ```
 ```
-# cephadm bootstrap --mon-ip 192.168.1.101 --registry-json ./mylogin.json
 Verifying podman|docker is present...
 Verifying lvm2 is present...
 Verifying time synchronization is in place...
@@ -117,4 +116,27 @@ You can access the Ceph CLI with:
 
 	sudo /usr/sbin/cephadm shell --fsid c0bf2ee0-338b-11ec-af56-527267c4d4c1 -c /etc/ceph/ceph.conf -k /etc/ceph/ceph.client.admin.keyring
 ...
+```
+Check the cluster services
+```
+# ceph orch ls
+NAME           RUNNING  REFRESHED  AGE  PLACEMENT
+alertmanager       1/1  12s ago    7m   count:1
+crash              1/1  12s ago    8m   *
+grafana            1/1  12s ago    7m   count:1
+mgr                1/2  12s ago    8m   count:2
+mon                1/5  12s ago    8m   count:5
+node-exporter      1/1  12s ago    7m   *
+prometheus         1/1  12s ago    7m   count:1
+```
+```
+# ceph orch ps
+NAME                      HOST        STATUS        REFRESHED  AGE  PORTS          VERSION           IMAGE ID      CONTAINER ID
+alertmanager.ceph-osd-1   ceph-osd-1  running (5m)  58s ago    7m   *:9093 *:9094  0.20.0            4c997545e699  8c29f292f5a1
+crash.ceph-osd-1          ceph-osd-1  running (7m)  58s ago    7m   -              16.2.0-117.el8cp  2142b60d7974  9429d9bf92b7
+grafana.ceph-osd-1        ceph-osd-1  running (5m)  58s ago    6m   *:3000         6.7.4             09cf77100f6a  5d97b9201b63
+mgr.ceph-osd-1.pyscnc     ceph-osd-1  running (9m)  58s ago    9m   *:9283         16.2.0-117.el8cp  2142b60d7974  b9d8b9f722b9
+mon.ceph-osd-1            ceph-osd-1  running (9m)  58s ago    9m   -              16.2.0-117.el8cp  2142b60d7974  bd45fbca7706
+node-exporter.ceph-osd-1  ceph-osd-1  running (6m)  58s ago    6m   *:9100         0.18.1            68b1be7484d4  549bdaf3b12d
+prometheus.ceph-osd-1     ceph-osd-1  running (5m)  58s ago    5m   *:9095         2.22.2            5d1b335ca8fd  41bc0c543f2a
 ```
