@@ -22,7 +22,10 @@ This is a testing demo about how to export cephfs volume from 2 RHEL Samba gatew
 
 ## RHCS deployment  
 ### Install and check prerequisites
-1. Subscribe the RHEL bootstrap node, enable the RHCS repos, create inventory and verify ssh public key authentication
+1. Pre-reqs for RHEL bootstrap node: 
+   - Enable the RHCS repos
+   - Create ansible hosts inventory
+   - Configure ssh public key authentication from bootstrap node
 ```
 # subscription-manager repos --enable=rhceph-5-tools-for-rhel-8-x86_64-rpms --enable=ansible-2.9-for-rhel-8-x86_64-rpms
 ```
