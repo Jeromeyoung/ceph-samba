@@ -1,4 +1,4 @@
-# Export SMB through RHEL samba that uses cephfs as backend
+# Export SMB with RHEL/Samba and cephfs as backend
 # Summary
 - [Introduction](#Introduction)
 - [LAB Requirements](#Requirements)
