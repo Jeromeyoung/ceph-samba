@@ -1,0 +1,61 @@
+service_type: host
+addr: 192.168.1.101
+hostname: ceph-osd-1
+labels:
+- mon
+- osd
+- mgr
+---
+service_type: host
+addr: 192.168.1.102
+hostname: ceph-osd-2
+labels:
+- mon
+- osd
+- mgr
+---
+service_type: host
+addr: 192.168.1.103
+hostname: ceph-osd-3
+labels:
+- mon
+- osd
+- mgr
+---
+service_type: host
+addr: 192.168.1.104
+hostname: ceph-osd-4
+labels:
+- osd
+- prometheus
+- grafana
+---
+service_type: host
+addr: 192.168.1.105
+hostname: ceph-osd-5
+labels:
+- osd
+- mds
+- rgw
+---
+service_type: host
+addr: 192.168.1.106
+hostname: ceph-osd-6
+labels:
+- osd
+- mds
+- rgw
+---
+service_type: osd
+placement:
+  host_pattern: "*"
+data_devices:
+  all: true
+---
+service_type: mds
+placement:
+  label: mds
+---
+service_type: rgw
+placement:
+  label: rgw
