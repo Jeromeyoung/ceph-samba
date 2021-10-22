@@ -21,19 +21,17 @@ This is a testing demo about how to export cephfs volume from 2 RHEL Samba gatew
 ## RHCS deployment  
 1. Subscribe the RHEL admin node, enable the RHCS repos, create inventory and verify ssh public key authentication
 ```
-subscription-manager repos --enable=rhceph-5-tools-for-rhel-8-x86_64-rpms --enable=ansible-2.9-for-rhel-8-x86_64-rpms
+# subscription-manager repos --enable=rhceph-5-tools-for-rhel-8-x86_64-rpms --enable=ansible-2.9-for-rhel-8-x86_64-rpms
 ```
 ```
-cd  /usr/share/cephadm-ansible
+# cd  /usr/share/cephadm-ansible
 ```
 ```
-grep inventory ansible.cfg
-```
-```
+# grep inventory ansible.cfg
 inventory = ./inventory/staging/hosts
 ```
 ```
-cat ./inventory/staging/hosts
+# cat ./inventory/staging/hosts
 ```
 ```
 [admin]
@@ -44,9 +42,7 @@ ceph-osd-[1:6]
 
 ```
 ```
-ansible all -m ping
-```
-```
+# ansible all -m ping
 ceph-osd-1 | SUCCESS => {
     "changed": false,
     "ping": "pong"
