@@ -27,9 +27,11 @@ This is a testing demo about how to export cephfs volume from 2 RHEL Samba gatew
    - Create ansible hosts inventory
    - Configure ssh public key authentication from bootstrap node
 ```
-ansible all -m command -a 'subscription-manager register --username=ctorres-redhat --password="PUT_YOUR_PASSWORD_HERE"'
+# ansible all -m command -a 'subscription-manager register --username=ctorres-redhat --password="PUT_YOUR_PASSWORD_HERE"'
 ```
-ansible all -m command -a 'subscription-manager attach --pool=8a85f9997acf22f9017b4e4153d762e7'
+```
+# ansible all -m command -a 'subscription-manager attach --pool=8a85f9997acf22f9017b4e4153d762e7'
+```
 ```
 # subscription-manager repos --enable=rhel-8-for-x86_64-baseos-rpms --enable=rhel-8-for-x86_64-appstream-rpms --enable=rhceph-5-tools-for-rhel-8-x86_64-rpms --enable=ansible-2.9-for-rhel-8-x86_64-rpms
 ```
@@ -44,7 +46,7 @@ Check your ansible.cfg file in /usr/share/cephadm-ansible
 # grep inventory ansible.cfg
 inventory = ./inventory/staging/hosts
 ```
-Check the inventory
+Check the inventory groups admin and clients
 ```
 # cat ./inventory/staging/hosts
 [admin]
