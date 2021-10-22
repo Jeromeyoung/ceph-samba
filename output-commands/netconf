@@ -1,0 +1,10 @@
+[root@samba-server-2 ctdb]# net conf list
+[shares]
+	path = /mnt/mycephfs/shares
+	guest ok = no
+	read only = no
+	valid users = @smbgrp
+	oplocks = False
+	level2 oplocks = False
+	kernel oplocks = no
+	browseable = yes

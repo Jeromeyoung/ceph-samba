@@ -1,0 +1,1 @@
+ceph auth get-or-create client.samba.gw mon 'allow r'     osd 'allow *' mds 'allow *' -o ceph.client.samba.gw.keyring

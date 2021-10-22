@@ -1,0 +1,12 @@
+# groupadd smbgrp
+# useradd shares -G smbgrp
+# useradd shares -G smbgrp -u 1002
+# mkdir -vp /mnt/mycephfs/
+# once cephfs is mount in /mnt/mycephfs
+# mkdir -vp /mnt/mycephfs/shares/
+# chown shares:smbgrp /mnt/mycephfs/shares/
+# chmod -R 2755 /mnt/mycephfs/shares/
+# setsebool -P samba_export_all_rw=1
+# setsebool -P samba_export_all_ro=1
+# super important
+# ctdb event script enable legacy 10.interface

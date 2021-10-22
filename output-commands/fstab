@@ -1,0 +1,2 @@
+[root@samba-server-2 ctdb]# cat /etc/fstab | grep mycephfs
+192.168.1.101:6789,192.168.1.102:6789,192.168.1.103:6789:/	/mnt/mycephfs	ceph	name=samba.gw,noatime,_netdev    0       2

@@ -1,0 +1,5 @@
+[root@ceph-osd-1 ~]# cat /etc/ceph/ceph.conf
+# minimal ceph.conf for d529a0b2-2e9b-11ec-b4a0-527267c4d4c1
+[global]
+	fsid = d529a0b2-2e9b-11ec-b4a0-527267c4d4c1
+	mon_host = [v2:192.168.1.101:3300/0,v1:192.168.1.101:6789/0]
