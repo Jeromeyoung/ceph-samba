@@ -1,0 +1,5 @@
+[admin]
+ceph-osd-1
+
+[clients]
+ceph-osd-[2:6]

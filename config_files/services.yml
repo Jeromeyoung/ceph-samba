@@ -47,15 +47,19 @@ labels:
 - rgw
 ---
 service_type: osd
+service_id: osd_spec_default
 placement:
-  host_pattern: "*"
-data_devices:
-  all: true
----
-service_type: mds
-placement:
-  label: mds
+  host_pattern: '*'
 ---
 service_type: rgw
+service_id: test_realm.test_zone
 placement:
-  label: rgw
+  label: "rgw"
+spec:
+  rgw_realm: test_realm
+  rgw_zone: test_zone
+---
+service_type: mds
+service_id: cephfs
+placement:
+  label: "mds"
