@@ -1,26 +1,23 @@
-:w---
+---
 - name: Subscribe system and enable repos
-  hosts: all
-  become: true
+  hosts: admin, clients
   vars_files:
     - ./vars/hosts.yml
-    pool: '8a85f9997acf22f9017b4e4153d762e7'
   tasks:
   - name: Register and add rhcs repos for RHEL 8
     shell: |
-       subscription-manager register --username  {{ user_name }} --password='{{ password }}'
-       subscription-manager attach --pool=8a85f9997acf22f9017b4e4153d762e7
-       subscription-manager repos --disable=*
-       subscription-manager repos --enable=rhel-8-for-x86_64-baseos-rpms \
-        --enable=rhel-8-for-x86_64-appstream-rpms \
-        --enable=rhceph-5-tools-for-rhel-8-x86_64-rpms \
-        --enable=ansible-2.9-for-rhel-8-x86_64-rpms
+           subscription-manager register --username {{ user_name }} --password='{{ password }}' --force
+           subscription-manager attach --pool={{ pool }}
+           subscription-manager repos --disable=*
+           subscription-manager repos --enable=rhel-8-for-x86_64-baseos-rpms \
+           --enable=rhel-8-for-x86_64-appstream-rpms \
+           --enable=rhceph-5-tools-for-rhel-8-x86_64-rpms \
+           --enable=ansible-2.9-for-rhel-8-x86_64-rpms
 
-  - name: Run cephadm preflight playbook
-    import_playbook: cephadm-preflight.yml
+  - name: Install cephadm-ansible
+    yum:
+      name: cephadm-ansible
+      state: latest
 
-  - name: Copy /etc/ceph/ceph.pub authorized key
-    authorized_key:
-      user: root
-      state: present
-      key: "{{ lookup('file', '/root/.ssh/id_rsa.pub') }}" 
+- name: Running cephadm-preflight.yml
+  import_playbook: cephadm-preflight.yml
