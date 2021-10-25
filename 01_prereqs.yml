@@ -1,4 +1,4 @@
----
+:w---
 - name: Subscribe system and enable repos
   hosts: all
   become: true
@@ -15,3 +15,12 @@
         --enable=rhel-8-for-x86_64-appstream-rpms \
         --enable=rhceph-5-tools-for-rhel-8-x86_64-rpms \
         --enable=ansible-2.9-for-rhel-8-x86_64-rpms
+
+  - name: Run cephadm preflight playbook
+    import_playbook: cephadm-preflight.yml
+
+  - name: Copy /etc/ceph/ceph.pub authorized key
+    authorized_key:
+      user: root
+      state: present
+      key: "{{ lookup('file', '/root/.ssh/id_rsa.pub') }}" 
