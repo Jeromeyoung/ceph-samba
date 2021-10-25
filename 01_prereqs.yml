@@ -16,7 +16,9 @@
 
   - name: Install cephadm-ansible
     yum:
-      name: cephadm-ansible
+      name:
+        - git
+        - cephadm-ansible
       state: latest
 
 - name: Running cephadm-preflight.yml
