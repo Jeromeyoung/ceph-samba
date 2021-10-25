@@ -95,7 +95,7 @@ ansible-playbook -i /usr/share/cephadm-ansible/inventory/staging/hosts cephadm-p
 ```
 
 ### RHCS deployment from bootstrap node
-1. Bootstrap a storage cluster
+1. Bootstrap a storage cluster with services yaml   
 ```
 # cephadm bootstrap --apply-spec services.yml --mon-ip 192.168.1.101 --registry-json ./mylogin.json
 ...
